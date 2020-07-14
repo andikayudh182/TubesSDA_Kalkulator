@@ -53,7 +53,7 @@ public class Evaluator {
             this(t, 0);
         }
 
-        public Token(int t, long v) {
+        public Token(int t, float v) {
             type = t;
             value = v;
         }
@@ -62,15 +62,16 @@ public class Evaluator {
             return type;
         }
 
-        public long getValue() {
+        public float getValue() {
             return value;
         }
 
         private int type = EOL;
-        private long value = 0;
+        private float value = 0;
     }
 
     private static class EvalTokenizer {
+        private StringTokenizer str;
 
         public EvalTokenizer(StringTokenizer is) {
             str = is;
@@ -82,7 +83,7 @@ public class Evaluator {
          * input is unrecognized.
          */
         public Token getToken() {
-            long theValue;
+            float theValue;
 
             if (!str.hasMoreTokens()) {
                 return new Token();
@@ -115,7 +116,7 @@ public class Evaluator {
             }
 
             try {
-                theValue = Long.parseLong(s);
+                theValue = Float.parseFloat(s);
             } catch (NumberFormatException e) {
                 System.err.println("Parse error");
                 return new Token();
@@ -124,7 +125,6 @@ public class Evaluator {
             return new Token(VALUE, theValue);
         }
 
-        private StringTokenizer str;
 
     }
 
@@ -150,7 +150,7 @@ public class Evaluator {
      *
      * @return the result.
      */
-    public long getValue() {
+    public float getValue() {
         EvalTokenizer tok = new EvalTokenizer(str);
         Token lastToken;
 
@@ -164,7 +164,7 @@ public class Evaluator {
             return 0;
         }
 
-        long theResult = postFixTopAndPop();
+        float theResult = postFixTopAndPop();
         if (!postfixStack.isEmpty()) {
             System.err.println("Warning: missing operators!");
         }
@@ -179,15 +179,15 @@ public class Evaluator {
     /**
      * Internal method that hides type-casting.
      */
-    private long postFixTopAndPop() {
-        return ((Long) (postfixStack.pop()));
+    private float postFixTopAndPop() {
+        return ((Float) (postfixStack.pop()));
     }
 
     /**
      * Another internal method that hides type-casting.
      */
-    private int opStackTop() {
-        return ((Integer) (opStack.peek()));
+    private float opStackTop() {
+        return ((Float) (opStack.peek()));
     }
 
     /**
@@ -215,8 +215,7 @@ public class Evaluator {
                 break;
 
             default:    // General operator case
-                while (precTable[lastType].inputSymbol
-                        <= precTable[topOp = opStackTop()].topOfStack) {
+                while (precTable[lastType].inputSymbol <= precTable[topOp = opStackTop()].topOfStack) {
                     binaryOp(topOp);
                 }
                 if (lastType != EOL) {
@@ -230,7 +229,7 @@ public class Evaluator {
      * topAndPop the postfix machine stack; return the result.
      * If the stack is empty, print an error message.
      */
-    private long getTop() {
+    private float getTop() {
         if (postfixStack.isEmpty()) {
             System.err.println("Missing operand");
             return 0;
@@ -241,7 +240,7 @@ public class Evaluator {
     /**
      * Internal routine to compute x^n.
      */
-    private static long pow(long x, long n) {
+    private static float pow(float x, float n) {
         if (x == 0) {
             if (n == 0) {
                 System.err.println("0^0 is undefined");
@@ -274,8 +273,8 @@ public class Evaluator {
             opStack.pop();
             return;
         }
-        long rhs = getTop();
-        long lhs = getTop();
+        float rhs = getTop();
+        float lhs = getTop();
 
         if (topOp == EXP) {
             postfixStack.push(pow(lhs, rhs));
