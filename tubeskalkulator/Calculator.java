@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package tubeskalkulator;
+
 import java.util.Stack;
 import java.util.StringTokenizer;
-
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 /**
- *
- * @author andika19
+ * @Name        : Calculator.java
+ * @Author      : Andika Yudha Riyanto & Sanjaya Wisnu Ramadhan
+ * @description : Calculator class (body for the main driver)
+ * @IDE         : Apache NetBeans 11.2 
  */
-public class Calculator
-{
-   
+public class Calculator {
+
     private static final int EOL = 0;
     private static final int VALUE = 1;
     private static final int OPAREN = 2;
@@ -40,7 +37,7 @@ public class Calculator
         }
     }
 
-    // PrecTable matches order of Token enumeration
+    // precTable untuk Pencocokan enumerasi Token
     private static Precedence[] precTable = new Precedence[]{
         new Precedence(0, -1), // EOL
         new Precedence(0, 0), // VALUE
@@ -82,6 +79,7 @@ public class Calculator
     }
 
     private static class EvalTokenizer {
+
         private StringTokenizer str;
 
         public EvalTokenizer(StringTokenizer is) {
@@ -89,9 +87,9 @@ public class Calculator
         }
 
         /**
-         * Find the next token, skipping blanks, and return it. For VALUE token,
-         * place the processed value in currentValue. Print error message if
-         * input is unrecognized.
+         * Mencari token selanjutnya, melewati blanks/spasi, return. untuk
+         * Nilai, letakan value pada currentValue. Print pesan error jika ada
+         * kesalahan.
          */
         public Token getToken() {
             float theValue;
@@ -107,7 +105,7 @@ public class Calculator
             if (s.equals("^")) {
                 return new Token(EXP);
             }
-            if (s.equals("%")){
+            if (s.equals("%")) {
                 return new Token(MODULO);
             }
             if (s.equals("/")) {
@@ -139,7 +137,6 @@ public class Calculator
             return new Token(VALUE, theValue);
         }
 
-
     }
 
     /**
@@ -156,13 +153,9 @@ public class Calculator
         opStack.push(EOL);
     }
 
-    // The only publicly visible routine
     /**
-     * Public routine that performs the evaluation. Examine the postfix machine
-     * to see if a single result is left and if so, return it; otherwise print
-     * error.
-     *
-     * @return the result.
+     * melakukan evaluasi. Periksa postfix machine untuk melihat apakah ada satu
+     * hasil yang tersisa dan jika demikian, kembalikan; sebaliknya print error.
      */
     public float getValue() {
         EvalTokenizer tok = new EvalTokenizer(str);
@@ -186,8 +179,8 @@ public class Calculator
         return theResult;
     }
 
-    private Stack opStack;       // Operator stack for conversion
-    private Stack postfixStack;  // Stack for postfix machine
+    private Stack opStack;       // Operator stack untuk konversi
+    private Stack postfixStack;  // Stack untuk postfix machine
     private StringTokenizer str; // StringTokenizer stream
 
     /**
@@ -205,8 +198,8 @@ public class Calculator
     }
 
     /**
-     * After a token is read, use operator precedence parsing algorithm to
-     * process it; missing opening parentheses are detected here.
+     * Setelah token dibaca, gunakan algoritma penguraian presedensi operator
+     * untuk memprosesnya; missing opening parentheses are detected here.
      */
     private void processToken(Token lastToken) {
         int topOp;
@@ -240,7 +233,8 @@ public class Calculator
     }
 
     /*
-     * topAndPop the postfix machine stack; return the result.
+     * topAndPop the postfix machine stack
+     * return the result.
      * If the stack is empty, print an error message.
      */
     private float getTop() {
@@ -252,7 +246,7 @@ public class Calculator
     }
 
     /**
-     * Internal routine to compute x^n.
+     * Menghitung Exponen.
      */
     private static float pow(float x, float n) {
         if (x == 0) {
@@ -262,7 +256,7 @@ public class Calculator
             return 0;
         }
         if (n < 0) {
-            return 1/pow(x, n * -1);
+            return 1 / pow(x, n * -1);
             //System.err.println("Negative exponent");
             //return 0;
         }
@@ -277,9 +271,9 @@ public class Calculator
     }
 
     /**
-     * Process an operator by taking two items off the postfix stack, applying
-     * the operator, and pushing the result. Print error if missing closing
-     * parenthesis or division by 0.
+     * Proses operator dengan mengambil dua item dari postfix stack,
+     * megaplikasikan operator, dan push result kembali; 
+     * Print error jika kehilangan closing atau parenthesis
      */
     private void binaryOp(int topOp) {
         if (topOp == OPAREN) {
@@ -287,33 +281,27 @@ public class Calculator
             opStack.pop();
             return;
         }
-        float rhs = getTop();
-        float lhs = getTop();
+        float right = getTop();
+        float left = getTop();
 
         if (topOp == EXP) {
-            postfixStack.push(pow(lhs, rhs));
+            postfixStack.push(pow(left, right));
         } else if (topOp == PLUS) {
-            postfixStack.push(lhs + rhs);
+            postfixStack.push(left + right);
         } else if (topOp == MINUS) {
-            postfixStack.push(lhs - rhs);
+            postfixStack.push(left - right);
         } else if (topOp == MULT) {
-            postfixStack.push(lhs * rhs);
+            postfixStack.push(left * right);
         } else if (topOp == MODULO) {
-            postfixStack.push(lhs % rhs);
+            postfixStack.push(left % right);
         } else if (topOp == DIV) {
-            if (rhs != 0) {
-                postfixStack.push(lhs / rhs);
+            if (right != 0) {
+                postfixStack.push(left / right);
             } else {
-                postfixStack.push(pow(1000000, 1000000));
-                //System.err.println("∞");
-                //postfixStack.push(lhs);
+                postfixStack.push(pow(1000000000, 1000000000));
             }
         }
         opStack.pop();
     }
-    /**
-     * Simple main to exercise Evaluator class.
-     */
-    }
-
-//∞∫√  nitip simbol
+}
+//∞ √ ∛  nitip simbol

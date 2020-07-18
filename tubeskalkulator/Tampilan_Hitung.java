@@ -1,18 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @Name        : Tampilan_Hitung.java
+ * @Author      : Andika Yudha Riyanto 
+ * @edit        : Sanjaya Wisnu Ramadhan
+ * @description : UI for Calculator (main driver)
+ * @IDE         : Apache NetBeans 11.2 
  */
 package tubeskalkulator;
 
-
-
 public class Tampilan_Hitung extends javax.swing.JFrame {
- String num;    
-    
+
+    String num;
+
     public Tampilan_Hitung() {
         initComponents();
-        num ="";
+        num = "";
     }
 
     /**
@@ -476,15 +477,15 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     private void Btn_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_8ActionPerformed
         Btn_8.setText("8");
         num += "8";
-        TxtInput.setText(num); 
+        TxtInput.setText(num);
     }//GEN-LAST:event_Btn_8ActionPerformed
 
     private void Btn_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_9ActionPerformed
-        
+
         Btn_9.setText("9");
         num += "9";
         TxtInput.setText(num);
-        
+
     }//GEN-LAST:event_Btn_9ActionPerformed
 
     private void Btn_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_5ActionPerformed
@@ -560,14 +561,14 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     private void Btn_SamaDenganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SamaDenganActionPerformed
         // Evaluate tree
         Calculator ev = new Calculator(num);
-        float a= ev.getValue();
-        
+        float a = ev.getValue();
+
         TxtInput.setText(Float.toString(a));
     }//GEN-LAST:event_Btn_SamaDenganActionPerformed
 
     private void TxtInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtInputActionPerformed
-       String hasil= "hasilnya";
-       
+        String hasil = "hasilnya";
+
     }//GEN-LAST:event_TxtInputActionPerformed
 
     private void Btn_BagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BagiActionPerformed
@@ -578,9 +579,9 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_BagiActionPerformed
 
     private void Btn_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ClearActionPerformed
-       String str = TxtInput.getText();
-        if (!str.equals("")) {
-            TxtInput.setText(str.substring(0, str.length() - 1));
+        num = TxtInput.getText();
+        if (!num.equals("")) {
+            TxtInput.setText(num.substring(0, num.length() - 1));
         }
     }//GEN-LAST:event_Btn_ClearActionPerformed
 
@@ -588,7 +589,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
         Btn_Tambah.setText("+");
         num += "+";
         TxtInput.setText(num);
-        
+
     }//GEN-LAST:event_Btn_TambahActionPerformed
 
     private void Btn_PangkatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PangkatActionPerformed
@@ -607,7 +608,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_toHexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toHexaActionPerformed
         Calculator ev = new Calculator(num);
-        long a= (long) ev.getValue();
+        long a = (long) ev.getValue();
         TxtInput.setText(Long.toHexString(a));
 
     }//GEN-LAST:event_Btn_toHexaActionPerformed
@@ -618,7 +619,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ResetActionPerformed
 
     private void Btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ExitActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_Btn_ExitActionPerformed
 
     private void Btn_Kali2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Kali2ActionPerformed
@@ -629,42 +630,44 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_Kali2ActionPerformed
 
     private void Btn_toBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toBinaryActionPerformed
-       Calculator ev = new Calculator(num);
-        long a= (long) ev.getValue();
+        Calculator ev = new Calculator(num);
+        long a = (long) ev.getValue();
         TxtInput.setText(Long.toBinaryString(a));
 
     }//GEN-LAST:event_Btn_toBinaryActionPerformed
 
     private void Btn_AkarKubikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AkarKubikActionPerformed
         Calculator ev = new Calculator(num);
-        double result=  (double)ev.getValue();
+        double result = (double) ev.getValue();
         double kubik = Math.cbrt(result);
-        TxtInput.setText("Akar Kubik dari " + result + " = " + kubik);
+        //TxtInput.setText("Akar Kubik dari " + result + " = " + kubik);
+        TxtInput.setText("∛" + result + " = " + kubik);
+
 
     }//GEN-LAST:event_Btn_AkarKubikActionPerformed
 
     private void Btn_SINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SINActionPerformed
         Calculator ev = new Calculator(num);
-        double sin=  (double)ev.getValue();
+        double sin = (double) ev.getValue();
         double radians = Math.toRadians(sin);
-        double sinValue= Math.sin(radians);
-        TxtInput.setText("sin("+sin+")="+sinValue);
+        double sinValue = Math.sin(radians);
+        TxtInput.setText("sin(" + sin + ")=" + sinValue);
     }//GEN-LAST:event_Btn_SINActionPerformed
 
     private void Btn_COSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_COSActionPerformed
         Calculator ev = new Calculator(num);
-        double cos=  (double)ev.getValue();
+        double cos = (double) ev.getValue();
         double radians = Math.toRadians(cos);
-        double cosValue= Math.cos(radians);
-        TxtInput.setText("cos("+cos+")="+cosValue);
+        double cosValue = Math.cos(radians);
+        TxtInput.setText("cos(" + cos + ")=" + cosValue);
     }//GEN-LAST:event_Btn_COSActionPerformed
 
     private void Btn_TANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_TANActionPerformed
         Calculator ev = new Calculator(num);
-        double tan=  (double)ev.getValue();
+        double tan = (double) ev.getValue();
         double radians = Math.toRadians(tan);
-        double tanValue= Math.tan(radians);
-        TxtInput.setText("tan("+tan+")="+tanValue);
+        double tanValue = Math.tan(radians);
+        TxtInput.setText("tan(" + tan + ")=" + tanValue);
     }//GEN-LAST:event_Btn_TANActionPerformed
 
     private void Btn_ModulusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ModulusActionPerformed
@@ -675,30 +678,30 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ModulusActionPerformed
 
     private void Btn_toOctal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toOctal1ActionPerformed
-       Calculator ev = new Calculator(num);
-        long a= (long) ev.getValue();
+        Calculator ev = new Calculator(num);
+        long a = (long) ev.getValue();
         TxtInput.setText(Long.toOctalString(a));
     }//GEN-LAST:event_Btn_toOctal1ActionPerformed
 
     private void Btn_AkarKuadradActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AkarKuadradActionPerformed
         Calculator ev = new Calculator(num);
-        double result=  (double)ev.getValue();
+        double result = (double) ev.getValue();
         double kuadrad = Math.sqrt(result);
-        TxtInput.setText("Akar Kuadrat dari " + result + " = " + kuadrad);
+        //TxtInput.setText("Akar Kuadrat dari " + result + " = " + kuadrad);
+        TxtInput.setText("√" + result + " = " + kuadrad);
     }//GEN-LAST:event_Btn_AkarKuadradActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
-        
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Tampilan_Hitung().setVisible(true);
-                
+
             }
-          
+
         });
     }
 
@@ -737,5 +740,4 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     private javax.swing.JTextField TxtInput;
     // End of variables declaration//GEN-END:variables
 
-    
 }

@@ -6,8 +6,10 @@
 package tubeskalkulator;
 
 /**
- *
- * @author andika19
+ * @Name        : TubesKalkulator.java
+ * @Author      : Andika Yudha Riyanto & Sanjaya Wisnu Ramadhan
+ * @description : Main Driver for Calculator
+ * @IDE         : Apache NetBeans 11.2 
  */
 public class TubesKalkulator {
 
@@ -15,5 +17,4 @@ public class TubesKalkulator {
         // TODO code application logic here
         new Tampilan_Hitung().show();
     }
-    
 }
