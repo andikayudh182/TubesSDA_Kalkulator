@@ -25,6 +25,7 @@ public class Calculator {
     private static final int PLUS = 7;
     private static final int MINUS = 8;
     private static final int MODULO = 9;
+    
 
     private static class Precedence {
 
@@ -167,18 +168,18 @@ public class Calculator {
         } while (lastToken.getType() != EOL);
 
         if (postfixStack.isEmpty()) {
-            System.err.println("Missing operand!");
+            //if Stack isEmpty, then return 0
             return 0;
         }
 
         float theResult = postFixTopAndPop();
         if (!postfixStack.isEmpty()) {
-            System.err.println("Warning: missing operators!");
+            //System.err.println("Warning: missing operators!");
+            System.err.println("The result are in the text field");
         }
 
         return theResult;
     }
-
     private Stack opStack;       // Operator stack untuk konversi
     private Stack postfixStack;  // Stack untuk postfix machine
     private StringTokenizer str; // StringTokenizer stream
@@ -285,20 +286,29 @@ public class Calculator {
         float left = getTop();
 
         if (topOp == EXP) {
+            System.out.println(left + " ^ " + right + " = " + postfixStack.push(pow(left, right)));
             postfixStack.push(pow(left, right));
         } else if (topOp == PLUS) {
+            System.out.println(left + " + " + right + " = " + postfixStack.push(left + right));
             postfixStack.push(left + right);
         } else if (topOp == MINUS) {
+            System.out.println(left + " - " + right + " = " + postfixStack.push(left - right));
             postfixStack.push(left - right);
         } else if (topOp == MULT) {
+            System.out.println(left + " * " + right + " = " + postfixStack.push(left * right));
             postfixStack.push(left * right);
         } else if (topOp == MODULO) {
+            System.out.println(left + " % " + right + " = " + postfixStack.push(left % right));
             postfixStack.push(left % right);
         } else if (topOp == DIV) {
             if (right != 0) {
+                System.out.println(left + " / " + right + " = " + postfixStack.push(left / right));
                 postfixStack.push(left / right);
             } else {
-                postfixStack.push(pow(1000000000, 1000000000));
+                System.out.println(postfixStack.push(pow(1000000000, 1000000000)));
+                postfixStack.push(pow(1000000, 1000000));
+                //System.err.println("∞");
+                //postfixStack.push(left);
             }
         }
         opStack.pop();
