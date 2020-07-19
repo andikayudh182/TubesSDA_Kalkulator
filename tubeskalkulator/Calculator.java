@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
  * @Author      : Andika Yudha Riyanto & Sanjaya Wisnu Ramadhan
  * @description : Calculator class (body for the main driver)
  * @IDE         : Apache NetBeans 11.2 
+ * @Date        : 09-07-2020
  */
 public class Calculator {
 
@@ -286,29 +287,31 @@ public class Calculator {
         float left = getTop();
 
         if (topOp == EXP) {
-            System.out.println(left + " ^ " + right + " = " + postfixStack.push(pow(left, right)));
-            postfixStack.push(pow(left, right));
+            if(right != 0){
+                System.out.println(left + " ^ " + right + " = " + pow(left, right));
+                postfixStack.push(pow(left, right));
+            } else {
+                postfixStack.push(pow(left, right));
+            }
         } else if (topOp == PLUS) {
-            System.out.println(left + " + " + right + " = " + postfixStack.push(left + right));
+            System.out.println(left + " + " + right + " = " + (left + right));
             postfixStack.push(left + right);
         } else if (topOp == MINUS) {
-            System.out.println(left + " - " + right + " = " + postfixStack.push(left - right));
+            System.out.println(left + " - " + right + " = " + (left - right));
             postfixStack.push(left - right);
         } else if (topOp == MULT) {
-            System.out.println(left + " * " + right + " = " + postfixStack.push(left * right));
+            System.out.println(left + " * " + right + " = " + (left * right));
             postfixStack.push(left * right);
         } else if (topOp == MODULO) {
-            System.out.println(left + " % " + right + " = " + postfixStack.push(left % right));
+            System.out.println(left + " % " + right + " = " + (left % right));
             postfixStack.push(left % right);
         } else if (topOp == DIV) {
             if (right != 0) {
-                System.out.println(left + " / " + right + " = " + postfixStack.push(left / right));
+                System.out.println(left + " / " + right + " = " + (left / right));
                 postfixStack.push(left / right);
             } else {
-                System.out.println(postfixStack.push(pow(1000000000, 1000000000)));
+                System.out.println(pow(1000000000, 1000000000));
                 postfixStack.push(pow(1000000, 1000000));
-                //System.err.println("∞");
-                //postfixStack.push(left);
             }
         }
         opStack.pop();

@@ -4,13 +4,13 @@
  * @edit        : Sanjaya Wisnu Ramadhan
  * @description : UI for Calculator (main driver)
  * @IDE         : Apache NetBeans 11.2 
+ * @Date        : 17-07-2020
  */
 package tubeskalkulator;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Stack;
-
 
 public class Tampilan_Hitung extends javax.swing.JFrame {
  String num;    
@@ -689,8 +689,6 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Titik;
     private javax.swing.JButton Btn_toBinary;
     private javax.swing.JButton Btn_toHexa;
-    private javax.swing.JButton Btn_toHexa1;
-    private javax.swing.JButton Btn_toHexa2;
     private javax.swing.JButton Btn_toOctal1;
     private javax.swing.JTextArea TxtArea;
     private javax.swing.JTextField TxtInput;
