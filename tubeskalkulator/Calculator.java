@@ -310,7 +310,7 @@ public class Calculator {
                 System.out.println(left + " / " + right + " = " + (left / right));
                 postfixStack.push(left / right);
             } else {
-                System.out.println(pow(1000000000, 1000000000));
+                System.out.println(left + " / " + right + " = " + pow(1000000000, 1000000000));
                 postfixStack.push(pow(1000000, 1000000));
             }
         }
