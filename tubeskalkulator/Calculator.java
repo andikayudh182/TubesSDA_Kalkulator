@@ -7,12 +7,13 @@ package tubeskalkulator;
 
 import java.util.Stack;
 import java.util.StringTokenizer;
+
 /**
- * @Name        : Calculator.java
- * @Author      : Andika Yudha Riyanto & Sanjaya Wisnu Ramadhan
+ * @Name : Calculator.java
+ * @Author : Andika Yudha Riyanto & Sanjaya Wisnu Ramadhan
  * @description : Calculator class (body for the main driver)
- * @IDE         : Apache NetBeans 11.2 
- * * @Date      : 09-07-2020
+ * @IDE : Apache NetBeans 11.2
+ * @Date : 09-07-2020
  */
 public class Calculator {
 
@@ -26,7 +27,6 @@ public class Calculator {
     private static final int PLUS = 7;
     private static final int MINUS = 8;
     private static final int MODULO = 9;
-    
 
     private static class Precedence {
 
@@ -274,8 +274,8 @@ public class Calculator {
 
     /**
      * Proses operator dengan mengambil dua item dari postfix stack,
-     * megaplikasikan operator, dan push result kembali; 
-     * Print error jika kehilangan closing atau parenthesis
+     * megaplikasikan operator, dan push result kembali; Print error jika
+     * kehilangan closing atau parenthesis
      */
     private void binaryOp(int topOp) {
         if (topOp == OPAREN) {
@@ -287,7 +287,7 @@ public class Calculator {
         float left = getTop();
 
         if (topOp == EXP) {
-            if(right != 0){
+            if (right != 0) {
                 System.out.println(left + " ^ " + right + " = " + pow(left, right));
                 postfixStack.push(pow(left, right));
             } else {

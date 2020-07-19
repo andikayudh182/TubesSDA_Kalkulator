@@ -7,15 +7,10 @@
  * @Date        : 17-07-2020
  */
 package tubeskalkulator;
-import java.awt.Frame;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Stack;
-import java.awt.Dimension;
-    import java.awt.event.KeyAdapter;
-    import java.awt.event.KeyEvent;
 
 public class Tampilan_Hitung extends javax.swing.JFrame {
  String num;    
@@ -83,14 +78,6 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
         TxtInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtInputActionPerformed(evt);
-            }
-        });
-        TxtInput.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtInputKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtInputKeyTyped(evt);
             }
         });
         jPanel2.add(TxtInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 89, 417, 40));
@@ -437,7 +424,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_9ActionPerformed
-        Btn_9.setText("9");
+        Btn_6.setText("9");
         num += "9";
         TxtInput.setText(num);
     }//GEN-LAST:event_Btn_9ActionPerformed
@@ -455,6 +442,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_1ActionPerformed
 
     private void Btn_TANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_TANActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         double tan=  (double)ev.getValue();
         double radians = Math.toRadians(tan);
@@ -464,13 +452,15 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_TANActionPerformed
 
     private void Btn_toHexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toHexaActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         long a= (long) ev.getValue();
         TxtInput.setText(Long.toHexString(a));
-        TxtArea.setText("Message : \n"); 
+        TxtArea.setText("Message : \n");
     }//GEN-LAST:event_Btn_toHexaActionPerformed
 
     private void Btn_COSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_COSActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         double cos=  (double)ev.getValue();
         double radians = Math.toRadians(cos);
@@ -486,19 +476,21 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ModulusActionPerformed
 
     private void Btn_AkarKubikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AkarKubikActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         double result=  (double)ev.getValue();
         double kubik = Math.cbrt(result);
         //TxtInput.setText("Akar Kubik dari " + result + " = " + kubik);
         TxtInput.setText("3√" + result + " = " + kubik);
+        TxtArea.setText("Message : \n");
     }//GEN-LAST:event_Btn_AkarKubikActionPerformed
 
     private void Btn_AkarKuadradActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AkarKuadradActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         double result=  (double)ev.getValue();
         double kuadrad = Math.sqrt(result);
         // TxtInput.setText("Akar Kuadrat dari " + result + " = " + kuadrad);
-        
         TxtInput.setText("√" + result + " = " + kuadrad);
         TxtArea.setText("Message : \n");
     }//GEN-LAST:event_Btn_AkarKuadradActionPerformed
@@ -524,10 +516,11 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_TambahActionPerformed
 
     private void Btn_toBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toBinaryActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         long a= (long) ev.getValue();
         TxtInput.setText(Long.toBinaryString(a));
-        TxtArea.setText("Message : \n"); 
+        TxtArea.setText("Message : \n");
     }//GEN-LAST:event_Btn_toBinaryActionPerformed
 
     private void Btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ExitActionPerformed
@@ -546,11 +539,12 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_PangkatActionPerformed
 
     private void Btn_toOctal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toOctal1ActionPerformed
-                                                   
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         long a= (long) ev.getValue();
         TxtInput.setText(Long.toOctalString(a));
-        TxtArea.setText("Message : \n");  
+        TxtArea.setText("Message : \n");
+
     }//GEN-LAST:event_Btn_toOctal1ActionPerformed
 
     private void Btn_BagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BagiActionPerformed
@@ -598,6 +592,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_KurungTutupActionPerformed
 
     private void Btn_SINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SINActionPerformed
+        String str = TxtInput.getText();
         Calculator ev = new Calculator(num);
         double sin=  (double)ev.getValue();
         double radians = Math.toRadians(sin);
@@ -629,7 +624,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
         num += "3";
         TxtInput.setText(num);
     }//GEN-LAST:event_Btn_3ActionPerformed
-    
+
     private void Btn_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_2ActionPerformed
         Btn_2.setText("2");
         num += "2";
@@ -664,15 +659,6 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
         String hasil= "hasilnya";
 
     }//GEN-LAST:event_TxtInputActionPerformed
-
-    private void TxtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtInputKeyTyped
-    
- 
-    }//GEN-LAST:event_TxtInputKeyTyped
-
-    private void TxtInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtInputKeyPressed
-     
-    }//GEN-LAST:event_TxtInputKeyPressed
     
         
     /**
@@ -689,7 +675,6 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
           
         });
     }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_0;
@@ -722,8 +707,6 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Titik;
     private javax.swing.JButton Btn_toBinary;
     private javax.swing.JButton Btn_toHexa;
-    private javax.swing.JButton Btn_toHexa1;
-    private javax.swing.JButton Btn_toHexa2;
     private javax.swing.JButton Btn_toOctal1;
     private javax.swing.JTextArea TxtArea;
     private javax.swing.JTextField TxtInput;
