@@ -443,7 +443,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_TANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_TANActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         double tan=  (double)ev.getValue();
         double radians = Math.toRadians(tan);
         double tanValue= Math.tan(radians);
@@ -453,7 +453,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_toHexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toHexaActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         long a= (long) ev.getValue();
         TxtInput.setText(Long.toHexString(a));
         TxtArea.setText("Message : \n");
@@ -461,7 +461,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_COSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_COSActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         double cos=  (double)ev.getValue();
         double radians = Math.toRadians(cos);
         double cosValue= Math.cos(radians);
@@ -477,7 +477,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_AkarKubikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AkarKubikActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         double result=  (double)ev.getValue();
         double kubik = Math.cbrt(result);
         //TxtInput.setText("Akar Kubik dari " + result + " = " + kubik);
@@ -487,7 +487,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_AkarKuadradActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AkarKuadradActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         double result=  (double)ev.getValue();
         double kuadrad = Math.sqrt(result);
         // TxtInput.setText("Akar Kuadrat dari " + result + " = " + kuadrad);
@@ -517,7 +517,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_toBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toBinaryActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         long a= (long) ev.getValue();
         TxtInput.setText(Long.toBinaryString(a));
         TxtArea.setText("Message : \n");
@@ -540,7 +540,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_toOctal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_toOctal1ActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         long a= (long) ev.getValue();
         TxtInput.setText(Long.toOctalString(a));
         TxtArea.setText("Message : \n");
@@ -593,7 +593,7 @@ public class Tampilan_Hitung extends javax.swing.JFrame {
 
     private void Btn_SINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SINActionPerformed
         String str = TxtInput.getText();
-        Calculator ev = new Calculator(num);
+        Calculator ev = new Calculator(str);
         double sin=  (double)ev.getValue();
         double radians = Math.toRadians(sin);
         double sinValue= Math.sin(radians);
